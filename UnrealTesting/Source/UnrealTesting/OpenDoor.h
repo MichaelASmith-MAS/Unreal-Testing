@@ -32,6 +32,8 @@ public:
 
 private:
 
+	AActor* Owner;
+
 	UPROPERTY(VisibleAnywhere)
 		AActor* ActorThatOpens;
 
