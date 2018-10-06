@@ -152,5 +152,7 @@
 
 */DerivedDataCache/*
 
+
 # Additional ignore
-*/Content/StarterContent
+*/Content/StarterContent/Textures
+*/Content/StarterContent/HDRI
