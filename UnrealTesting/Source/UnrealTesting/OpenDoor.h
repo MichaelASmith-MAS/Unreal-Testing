@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "Components/ActorComponent.h"
+#include "Components/PrimitiveComponent.h"
 #include "Engine/TriggerVolume.h"
 #include "GameFramework/Actor.h"
 #include "OpenDoor.generated.h"
@@ -32,16 +33,13 @@ public:
 
 private:
 
-	AActor* Owner;
-
-	UPROPERTY(VisibleAnywhere)
-		AActor* ActorThatOpens;
+	AActor* Owner = nullptr;
 
 	UPROPERTY(EditAnywhere)
 		float OpenAngle = 60.f;
 
 	UPROPERTY(EditAnywhere)
-		ATriggerVolume* PressurePlate;
+		ATriggerVolume* PressurePlate = nullptr;
 	
 	UPROPERTY(VisibleAnywhere)
 		bool bIsOpen;
@@ -51,5 +49,10 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 		float LastDoorOpenTime = 0.f;
+
+	UPROPERTY(EditAnywhere)
+		float PressurePlateTriggerThreshold = 50.f;
+
+	float TotalMassOfActorsOnPressurePlate();
 
 };

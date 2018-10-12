@@ -23,8 +23,10 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	// Attempt to configure Input component
 	void SetupInputComponent();
 
+	// Attempt to configure physics handle component
 	void FindPhysicsHandleComponent();
 
 public:	
@@ -33,16 +35,18 @@ public:
 
 private:
 
+	// Variables for player view location and rotation
 	FVector Position;
 	FRotator Rotation;
 
+	// External editable variable for character reach length
 	UPROPERTY(EditAnywhere)
 		float Reach = 100.f;
 
-	FVector TraceEnd;
-	
+	// Pointer for physics handle component
 	UPhysicsHandleComponent* PhysicsHandler = nullptr;
 
+	// Pointer for input component
 	UInputComponent* InputComponent = nullptr;
 
 	// Raycast and grab what is in reach
@@ -51,6 +55,10 @@ private:
 	// Release what has been grabbed
 	void Release();
 
+	// Return raycast hit when grabbing for an object
 	FHitResult GetFirstPhysicsBodyInReach();
+
+	// Return ray endpoint
+	FVector GetReachLineEndpoint();
 
 };
