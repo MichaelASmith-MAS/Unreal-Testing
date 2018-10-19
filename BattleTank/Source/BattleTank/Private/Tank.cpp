@@ -55,8 +55,7 @@ void ATank::Fire()
 {
 	if (!Barrel) { return; }
 
-	GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation(FName("Projectile")), Barrel->GetForwardVector().ToOrientationRotator());
-
-	UE_LOG(LogTemp, Warning, TEXT("You have fired!"));
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation(FName("Projectile")), Barrel->GetForwardVector().ToOrientationRotator());
+	Projectile->LaunchProjectile(LaunchSpeed);
 
 }
