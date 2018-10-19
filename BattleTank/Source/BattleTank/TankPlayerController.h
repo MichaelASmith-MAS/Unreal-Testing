@@ -36,6 +36,9 @@ private:
 		float LookDistance = 1000000.f;
 	
 	UPROPERTY(EditAnywhere)
-		float CrossHairXLocation = 0.5f, CrossHairYLocation = 0.3333f;
+		float CrossHairXLocation = 0.5f;
+	
+	UPROPERTY(EditAnywhere)
+		float CrossHairYLocation = 0.3f;
 
 };
