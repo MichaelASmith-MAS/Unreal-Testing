@@ -48,4 +48,9 @@ public:
 	UPROPERTY(EditAnywhere, Category = Setup)
 		TSubclassOf<AProjectile> ProjectileBlueprint = nullptr;
 
+	UPROPERTY(EditAnywhere, Category = Firing)
+		float ReloadTimeInSeconds = 2.f;
+
+	double LastFireTime = 0;
+
 };
