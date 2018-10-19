@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankPlayerController.h"
-
+#include "Public/Tank.h"
+#include "Engine/World.h"
 
 ATankPlayerController::ATankPlayerController()
 {
@@ -49,7 +50,7 @@ void ATankPlayerController::AimTowardCrosshair()
 
 	if (GetSightRayHitLocation(HitLocation))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *HitLocation.ToString());
+		GetControlledTank()->AimAt(HitLocation);
 
 	}
 
@@ -57,10 +58,6 @@ void ATankPlayerController::AimTowardCrosshair()
 
 bool ATankPlayerController::GetSightRayHitLocation(FVector &OutHitLocation) const
 {
-	// Find crosshair position
-	// translate screen position of crosshair to world direction
-	// Raycast along this direction to see what we hit
-
 	int32 ViewportSizeX, ViewportSizeY;
 	FVector CamPosition;
 	FVector ViewDirection;
@@ -96,3 +93,4 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector &OutHitLocation, FV
 
 	return false;
 }
+
